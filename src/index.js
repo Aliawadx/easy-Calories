@@ -6,6 +6,7 @@ import authRouter from"./routes/auth.js"
 import profileRouter from "./routes/userProfile.js";
 import mealRouter from "./routes/meals.js";
 import postRouter from "./routes/post.js";
+import { errorHandler } from "./middlewares/errorHandler.js";
 dotenv.config({ quiet: true })
 const app = express()
 app.use(cors())
@@ -25,7 +26,7 @@ app.use("/api",postRouter)
 
 
 
-
+app.use(errorHandler)
 
 
 const port = process.env.PORT
